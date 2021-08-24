@@ -1,10 +1,9 @@
-import { MessagesPage } from './index'
-import { Consts } from '../../utils/consts'
-
 import '@testing-library/jest-dom'
-import { screen, render, act, waitFor } from '@testing-library/react'
+import React from 'react'
+import { MessagesPage } from './index'
+import { screen, render, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { MessageProvider } from '../../context/Message'
+import MessageProvider from '../../context/Message'
 
 beforeAll(() => {
   jest.useFakeTimers()

@@ -1,3 +1,4 @@
+import React from 'react'
 import Message from './index'
 import { Consts } from '../../utils/consts'
 
@@ -40,7 +41,7 @@ describe('Message Component', () => {
     const testMessage = 'lalala lelele'
     const index = 0
     const priority = Consts.PRIORITY.ERROR
-    const onClearMessage = jest.fn();
+    const onClearMessage = jest.fn()
 
     const testId = `message-clear-button-${priority}-${index}`
     render(
@@ -53,6 +54,6 @@ describe('Message Component', () => {
     )
 
     userEvent.click(screen.queryByTestId(testId))
-    expect(onClearMessage).toHaveBeenCalled();
+    expect(onClearMessage).toHaveBeenCalled()
   })
 })

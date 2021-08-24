@@ -9,4 +9,4 @@ export const theme = createTheme({
       fontSize: 28
     }
   }
-});
+})

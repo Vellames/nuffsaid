@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react'
+import React, { useEffect, useCallback, useMemo } from 'react'
 import Api from '../../api'
 import MessagesPageContainer from './container'
 
-import { initialMessagesState, useMessages } from '../../context/Message' 
+import { initialMessagesState, useMessages } from '../../context/Message'
 import { Consts } from '../../utils/consts'
 
 export const MessagesPage = () => {
@@ -11,7 +11,7 @@ export const MessagesPage = () => {
     isApiStarted, setIsApiStarted,
     setSnackBarOpen,
     setLastErrorMessage
-  }  = useMessages()
+  } = useMessages()
 
   const messageCallback = useCallback((message) => {
     if (message.priority === Consts.PRIORITY.ERROR) {
@@ -22,8 +22,8 @@ export const MessagesPage = () => {
       ...prevValue,
       [message.priority]: [message.message, ...prevValue[message.priority]]
     }))
-  }, [setMessages]);
-  const api = useMemo(() => new Api({ messageCallback }), []);
+  }, [setMessages])
+  const api = useMemo(() => new Api({ messageCallback }), [])
 
   const onClearMessage = (priority, index) => {
     setMessages({
@@ -48,12 +48,12 @@ export const MessagesPage = () => {
 
   const handleSnackBarClose = (event, reason) => {
     if (reason === 'clickaway') {
-      return;
+      return
     }
 
-    setSnackBarOpen(false);
+    setSnackBarOpen(false)
   }
-  
+
   useEffect(() => {
     api.start()
     setIsApiStarted(true)

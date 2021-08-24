@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
-import { Consts } from '../utils/consts';
+import PropTypes from 'prop-types'
+import { Consts } from '../utils/consts'
 
 export const initialMessagesState = {
   [Consts.PRIORITY.ERROR]: [],
@@ -9,17 +10,21 @@ export const initialMessagesState = {
 
 const MessageContext = createContext()
 
-export const MessageProvider = ({ children }) => {
-  const [messages, setMessages] = useState(initialMessagesState);
+const MessageProvider = ({ children }) => {
+  const [messages, setMessages] = useState(initialMessagesState)
   const [isApiStarted, setIsApiStarted] = useState(false)
-  const [isSnackBarOpen, setSnackBarOpen] = useState(false);
+  const [isSnackBarOpen, setSnackBarOpen] = useState(false)
   const [lastErrorMessage, setLastErrorMessage] = useState()
 
   const values = {
-    messages, setMessages,
-    isApiStarted, setIsApiStarted,
-    isSnackBarOpen, setSnackBarOpen,
-    lastErrorMessage, setLastErrorMessage
+    messages,
+    setMessages,
+    isApiStarted,
+    setIsApiStarted,
+    isSnackBarOpen,
+    setSnackBarOpen,
+    lastErrorMessage,
+    setLastErrorMessage
   }
   return (
     <MessageContext.Provider value={values}>
@@ -27,6 +32,10 @@ export const MessageProvider = ({ children }) => {
     </MessageContext.Provider>
   )
 }
+MessageProvider.propTypes = {
+  children: PropTypes.any
+}
+export default MessageProvider
 
 export const useMessages = () => {
   const context = useContext(MessageContext)

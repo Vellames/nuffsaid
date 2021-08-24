@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom'
 import { MessagesPage } from './pages/messages'
 import { ThemeProvider } from '@material-ui/core'
 import { theme } from './theme'
-import { MessageProvider } from './context/Message'
-
-
+import MessageProvider from './context/Message'
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
@@ -15,4 +13,3 @@ ReactDOM.render(
   </ThemeProvider>
   ,
   document.getElementById('root'))
-;
