@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { MessageList } from './components/MessageList'
+import { MessagesPage } from './pages/messages'
 
-ReactDOM.render(<MessageList />, document.getElementById('root'));
+ReactDOM.render(<MessagesPage />, document.getElementById('root'));
