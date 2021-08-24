@@ -1,4 +1,4 @@
-import { Message } from './index'
+import Message from './index'
 import { Consts } from '../../utils/consts'
 
 import '@testing-library/jest-dom'
@@ -13,6 +13,7 @@ describe('Message Component', () => {
         message={testMessage}
         index={0}
         priority={Consts.PRIORITY.ERROR}
+        onClearMessage={() => {}}
       />
     )
 
@@ -28,6 +29,7 @@ describe('Message Component', () => {
         message={testMessage}
         index={index}
         priority={priority}
+        onClearMessage={() => {}}
       />
     )
 

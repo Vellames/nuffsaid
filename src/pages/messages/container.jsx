@@ -1,12 +1,13 @@
 import React from 'react'
 import Alert from '@material-ui/lab/Alert';
-import { Message } from '../../components/Message'
+import Message from '../../components/Message'
+import PropTypes from 'prop-types'
 import { Typography, Container, Grid, Box, Button, Snackbar, ButtonGroup } from '@material-ui/core';
 
 import { useMessages } from '../../context/Message' 
 import { Consts } from '../../utils/consts';
 
-export const MessagesPageContainer = (props) => {
+const MessagesPageContainer = (props) => {
   const { messages, isSnackBarOpen, isApiStarted, lastErrorMessage }  = useMessages()
 
   const getPriorityNameTitle = (priority) => {
@@ -85,3 +86,12 @@ export const MessagesPageContainer = (props) => {
     </Container>
   )
 }
+
+MessagesPageContainer.propTypes = {
+  onClearMessage: PropTypes.func.isRequired,
+  onClearMessagesClicked: PropTypes.func.isRequired,
+  onChangeApiStatusClicked: PropTypes.func.isRequired,
+  handleSnackBarClose: PropTypes.func.isRequired,
+}
+
+export default MessagesPageContainer

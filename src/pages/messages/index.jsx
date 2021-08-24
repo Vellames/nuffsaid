@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import Api from '../../api'
-import { MessagesPageContainer } from './container'
+import MessagesPageContainer from './container'
 
 import { initialMessagesState, useMessages } from '../../context/Message' 
 import { Consts } from '../../utils/consts'
@@ -20,7 +20,7 @@ export const MessagesPage = () => {
     }
     setMessages((prevValue) => ({
       ...prevValue,
-      [message.priority]: [[message.message], ...prevValue[message.priority]]
+      [message.priority]: [message.message, ...prevValue[message.priority]]
     }))
   }, [setMessages]);
   const api = useMemo(() => new Api({ messageCallback }), []);

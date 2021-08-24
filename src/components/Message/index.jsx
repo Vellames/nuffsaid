@@ -1,9 +1,10 @@
 import React from 'react'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 import { Button, Card, Typography, Box } from '@material-ui/core'
 import { useStyles } from './styles';
 
-export const Message = ({ message, priority, index, onClearMessage }) => {
+const Message = ({ message, priority, index, onClearMessage }) => {
   const priorityClasses = {
     1: 'errorMessage',
     2: 'warningMessage',
@@ -24,3 +25,12 @@ export const Message = ({ message, priority, index, onClearMessage }) => {
     </Card>
   )
 }
+
+Message.propTypes = {
+  message: PropTypes.string.isRequired,
+  priority: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  onClearMessage: PropTypes.func.isRequired,
+}
+
+export default Message
