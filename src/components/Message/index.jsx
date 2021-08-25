@@ -28,7 +28,10 @@ const Message = ({ message, priority, index, onClearMessage }) => {
 
 Message.propTypes = {
   message: PropTypes.string.isRequired,
-  priority: PropTypes.string.isRequired,
+  priority: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]).isRequired,
   index: PropTypes.number.isRequired,
   onClearMessage: PropTypes.func.isRequired
 }
